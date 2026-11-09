@@ -10,7 +10,7 @@
 <meta property="og:title" content="Luca Placido — AI, Data & Web">
 <meta property="og:description" content="Docente universitario, consulente AI e data analyst. Il mio percorso professionale in una pagina.">
 <meta property="og:type" content="website">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%231c1e22'/%3E%3Ctext x='32' y='42' font-size='28' font-family='sans-serif' font-weight='700' text-anchor='middle' fill='%2395b0a6'%3ELP%3C/text%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%231c1e22'/%3E%3Ctext x='32' y='42' font-size='28' font-family='sans-serif' font-weight='700' text-anchor='middle' fill='%23e08a4a'%3ELP%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
@@ -18,12 +18,12 @@
 <style>
 :root,[data-theme="light"]{
   --bg:#f6f5f1; --card:#ffffff; --line:#dedbd3; --text:#24272c; --muted:#5e646c;
-  --accent:#3f6b5e; --accent-hover:#34594e; --on-accent:#ffffff; --accent-soft:rgba(63,107,94,.09);
+  --accent:#b4530a; --accent-hover:#93430a; --on-accent:#ffffff; --accent-soft:rgba(180,83,10,.09);
   --desc:#3a3e44; --list:#4c5158; --radius:8px; color-scheme:light;
 }
 [data-theme="dark"]{
   --bg:#1c1e22; --card:#23262b; --line:#34383e; --text:#dcdfe3; --muted:#9aa0a8;
-  --accent:#95b0a6; --accent-hover:#a8c2b8; --on-accent:#17191c; --accent-soft:rgba(149,176,166,.12);
+  --accent:#e08a4a; --accent-hover:#eb9d62; --on-accent:#1c1e22; --accent-soft:rgba(224,138,74,.14);
   --desc:#c4c9cf; --list:#aeb4bb; color-scheme:dark;
 }
 *{box-sizing:border-box;margin:0;padding:0}
@@ -37,8 +37,14 @@ nav{position:sticky;top:0;z-index:20;background:var(--bg);border-bottom:1px soli
 nav .wrap{display:flex;align-items:center;justify-content:space-between;height:56px}
 .logo{font-weight:700;font-size:17px}
 .nav-r{display:flex;align-items:center;gap:10px}
-.theme{font:400 13px Roboto,system-ui,sans-serif;color:var(--muted);background:none;border:1px solid var(--line);border-radius:var(--radius);padding:6px 12px;cursor:pointer}
-.theme:hover{color:var(--text)}
+.switch{position:relative;width:58px;height:30px;border-radius:999px;border:1px solid var(--line);background:var(--card);cursor:pointer;padding:0;color:var(--muted)}
+.switch .ic{position:absolute;top:6px;width:16px;height:16px}
+.switch .sun{left:7px}.switch .moon{right:7px}
+.switch .knob{position:absolute;top:3px;left:3px;width:22px;height:22px;border-radius:50%;background:var(--accent);transition:transform .2s}
+.switch[aria-checked="true"] .knob{transform:translateX(28px)}
+.switch .ic{z-index:1;transition:color .2s}
+.switch[aria-checked="false"] .sun{color:var(--on-accent)}
+.switch[aria-checked="true"] .moon{color:var(--on-accent)}
 nav ul{display:flex;gap:24px;list-style:none;font-size:14px;color:var(--muted)}
 nav ul a:hover{color:var(--text)}
 @media(max-width:700px){nav ul{display:none}}
@@ -112,8 +118,12 @@ footer{padding:32px 0 40px;text-align:center;color:var(--muted);font-size:13px}
       <li><a href="#competenze">Competenze</a></li>
     </ul>
     <div class="nav-r">
-      <button class="theme" id="theme" type="button" aria-label="Cambia tema"></button>
-      <a class="btn primary sm" href="mailto:lucaplacidop@gmail.com?subject=Contatto%20dal%20tuo%20sito">Scrivimi</a>
+      <button class="switch" id="theme" type="button" role="switch" aria-checked="false" aria-label="Tema scuro">
+        <svg class="ic sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        <svg class="ic moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8 8 0 0 1 9.5 4 8 8 0 1 0 20 14.5z"/></svg>
+        <span class="knob"></span>
+      </button>
+      <a class="btn primary sm" href="mailto:luca.placido@iisbraschiquarenghi.edu.it?subject=Contatto%20dal%20tuo%20sito">Scrivimi</a>
     </div>
   </div>
 </nav>
@@ -126,7 +136,7 @@ footer{padding:32px 0 40px;text-align:center;color:var(--muted);font-size:13px}
       <p class="role-line">Docente · Dati e intelligenza artificiale · Web</p>
       <p class="lead">Insegno informatica all'università e a scuola, e lavoro con dati, AI e sviluppo web. Qui trovi in breve le mie esperienze professionali.</p>
       <div class="cta">
-        <a class="btn primary" href="mailto:lucaplacidop@gmail.com?subject=Contatto%20dal%20tuo%20sito">Scrivimi una mail</a>
+        <a class="btn primary" href="mailto:luca.placido@iisbraschiquarenghi.edu.it?subject=Contatto%20dal%20tuo%20sito">Scrivimi una mail</a>
         <a class="btn ghost" href="CV_Luca_Placido.pdf" download>Scarica il CV (PDF)</a>
       </div>
     </div>
@@ -154,15 +164,15 @@ footer{padding:32px 0 40px;text-align:center;color:var(--muted);font-size:13px}
         <div class="meta"><span class="period">12/2024 — oggi</span><span class="tag">Università</span></div>
         <h3>Professore universitario a contratto</h3>
         <p class="org">Università di Foggia · Laurea Magistrale in Innovazione Digitale e Comunicazione (LM-91)</p>
-        <p class="desc">Titolare dell'insegnamento di <b>Tecnologie e Programmazione Web</b> e, fino ad aprile 2026, di <b>Analisi dei dataset per AI, Machine Learning e Reti Neurali</b>.</p>
-        <details><summary>Tecnologie e Programmazione Web</summary>
+        <p class="desc">Titolare degli insegnamenti di <b>Tecnologie e Programmazione Web</b> (A.A. 2026/2027) e di <b>Analisi dei dataset per AI, Machine Learning e Reti Neurali</b> (A.A. 2025/2026).</p>
+        <details><summary>Tecnologie e Programmazione Web · A.A. 2026/2027</summary>
           <ul>
             <li>Architettura di Internet e del Web, HTML, CSS e programmazione client-side con JavaScript.</li>
             <li>Logiche server-side, form e database, API, servizi web e REST.</li>
             <li>Sicurezza, responsive design, CMS, e-commerce e web service.</li>
           </ul>
         </details>
-        <details><summary>Analisi dei dataset per AI, ML e Reti Neurali</summary>
+        <details><summary>Analisi dei dataset per AI, ML e Reti Neurali · A.A. 2025/2026</summary>
           <ul>
             <li>Fondamenti di AI e Data Analytics: paradigmi di apprendimento supervisionato, non supervisionato e per rinforzo.</li>
             <li>Data curation (training, validation, test), bias e varianza, classificazione, alberi decisionali, K-NN, K-Means.</li>
@@ -177,7 +187,7 @@ footer{padding:32px 0 40px;text-align:center;color:var(--muted);font-size:13px}
     <article class="role" data-cat="scuola">
       <div class="card">
         <div class="meta"><span class="period">09/2022 — oggi</span><span class="tag">Scuola</span></div>
-        <h3>Docente di Informatica (A041) e Referente interno per l'IA</h3>
+        <h3>Docente di ruolo di Informatica (A041) e Referente interno per l'IA</h3>
         <p class="org">Istituti di istruzione secondaria di II grado</p>
         <p class="desc">Insegnamento di Informatica, referente scolastico per l'Intelligenza Artificiale e per il Gruppo di Progettazione Campus PNRR.</p>
         <details><summary>Dettagli</summary>
@@ -204,6 +214,23 @@ footer{padding:32px 0 40px;text-align:center;color:var(--muted);font-size:13px}
             <li>Interfaccia utente interattiva per caricare le interviste e ottenere i risultati anonimizzati.</li>
             <li>Linee guida operative e best practice per l'applicazione etica dell'IA nella ricerca sociale.</li>
             <li>Contributo a un tool AI open access destinato a ricercatori e infrastrutture europee.</li>
+          </ul>
+        </details>
+      </div>
+    </article>
+
+    <article class="role" data-cat="ai">
+      <div class="card">
+        <div class="meta"><span class="period">01/2025 — oggi</span><span class="tag">AI & Formazione</span></div>
+        <h3>Formatore per la transizione digitale</h3>
+        <p class="org">Mr. Digital · D.M. 66/2023 e D.M. 219/2025</p>
+        <p class="desc">Moduli formativi su <b>AI, Machine Learning e Big Data</b> e workshop interattivi. Formati oltre <b>150 professionisti</b>.</p>
+        <details><summary>Dettagli</summary>
+          <ul>
+            <li>Progettazione didattica con Bloom's Taxonomy per un'audience eterogenea.</li>
+            <li>Workshop su apprendimento supervisionato e non, reti neurali e GAN; funzionamento degli LLM (tokenizzazione, auto-attenzione, addestramento); fine-tuning, pruning, quantizzazione.</li>
+            <li>Bias e disuguaglianze dell'AI, sostenibilità e regolamentazione (AI Act, GDPR).</li>
+            <li>Tutoraggio one-to-one su Python, SQL e ambienti cloud (AWS, Redshift) e coaching per una cultura data-driven nei team aziendali.</li>
           </ul>
         </details>
       </div>
@@ -273,23 +300,6 @@ footer{padding:32px 0 40px;text-align:center;color:var(--muted);font-size:13px}
             <li>Metodologie dei laboratori STE(A)M e interdisciplinarità Matematica-Scienze (classe A028).</li>
             <li>Inclusività BES e gestione di dati/open data.</li>
             <li>Verifica dell'apprendimento tramite project work pratici, e-tivity e prove orali.</li>
-          </ul>
-        </details>
-      </div>
-    </article>
-
-    <article class="role" data-cat="ai">
-      <div class="card">
-        <div class="meta"><span class="period">01/2025 — oggi</span><span class="tag">AI & Formazione</span></div>
-        <h3>Formatore per la transizione digitale</h3>
-        <p class="org">Mr. Digital · D.M. 66/2023 e D.M. 219/2025</p>
-        <p class="desc">Moduli formativi su <b>AI, Machine Learning e Big Data</b> e workshop interattivi. Formati oltre <b>150 professionisti</b>.</p>
-        <details><summary>Dettagli</summary>
-          <ul>
-            <li>Progettazione didattica con Bloom's Taxonomy per un'audience eterogenea.</li>
-            <li>Workshop su apprendimento supervisionato e non, reti neurali e GAN; funzionamento degli LLM (tokenizzazione, auto-attenzione, addestramento); fine-tuning, pruning, quantizzazione.</li>
-            <li>Bias e disuguaglianze dell'AI, sostenibilità e regolamentazione (AI Act, GDPR).</li>
-            <li>Tutoraggio one-to-one su Python, SQL e ambienti cloud (AWS, Redshift) e coaching per una cultura data-driven nei team aziendali.</li>
           </ul>
         </details>
       </div>
@@ -398,16 +408,16 @@ footer{padding:32px 0 40px;text-align:center;color:var(--muted);font-size:13px}
     <h2>Competenze</h2>
   <div class="skills">
     <div class="card">
+      <h3>Didattica e formazione</h3>
+      <p>Teaching &amp; Training, Progettazione MOOC, Instructional design, Moodle, UDL / Inclusività, IT Support</p>
+    </div>
+    <div class="card">
       <h3>Dati e AI</h3>
       <p>Analytics, Data-driven solutions, Data integration, Data warehousing, Intelligenza Artificiale, Machine Learning, NLP &amp; LLM, Data visualization</p>
     </div>
     <div class="card">
       <h3>Strumenti e tecnologie</h3>
       <p>Python, SQL, JavaScript, React / Vue.js, HTML5 / CSS3, MySQL / MongoDB, AWS (S3, Redshift), Azure, Power BI, Knime, Shopify / WooCommerce</p>
-    </div>
-    <div class="card">
-      <h3>Didattica e formazione</h3>
-      <p>Teaching &amp; Training, Progettazione MOOC, Instructional design, Moodle, UDL / Inclusività, IT Support</p>
     </div>
     <div class="card">
       <h3>Lingue</h3>
@@ -421,7 +431,7 @@ footer{padding:32px 0 40px;text-align:center;color:var(--muted);font-size:13px}
   <h2>Contatti</h2>
   <p>Per collaborazioni o opportunità scrivimi pure. Qui sotto trovi anche il CV completo.</p>
   <div class="cta">
-    <a class="btn primary" href="mailto:lucaplacidop@gmail.com?subject=Contatto%20dal%20tuo%20sito">Scrivimi una mail
+    <a class="btn primary" href="mailto:luca.placido@iisbraschiquarenghi.edu.it?subject=Contatto%20dal%20tuo%20sito">Scrivimi una mail
     </a>
     <a class="btn ghost" href="CV_Luca_Placido.pdf" download>Scarica il CV (PDF)
     </a>
@@ -435,7 +445,7 @@ footer{padding:32px 0 40px;text-align:center;color:var(--muted);font-size:13px}
 <script>
 // Tema chiaro/scuro
 const tb = document.getElementById('theme');
-function paint(){ tb.textContent = document.documentElement.dataset.theme === 'dark' ? 'Tema chiaro' : 'Tema scuro'; }
+function paint(){ tb.setAttribute('aria-checked', document.documentElement.dataset.theme === 'dark'); }
 tb.addEventListener('click', () => {
   const t = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
   document.documentElement.dataset.theme = t;
