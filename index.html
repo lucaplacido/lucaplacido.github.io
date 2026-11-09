@@ -5,20 +5,30 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Luca Placido — Docente universitario · AI & Data · Web</title>
 <meta name="description" content="Luca Placido: professore a contratto, consulente AI, formatore e data analyst. Esperienze professionali tra università, scuola, progetti europei e aziende.">
-<meta name="theme-color" content="#1c1e22">
-<meta name="color-scheme" content="dark">
+
+<meta name="color-scheme" content="light dark">
 <meta property="og:title" content="Luca Placido — AI, Data & Web">
 <meta property="og:description" content="Docente universitario, consulente AI e data analyst. Il mio percorso professionale in una pagina.">
 <meta property="og:type" content="website">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%231c1e22'/%3E%3Ctext x='32' y='42' font-size='28' font-family='sans-serif' font-weight='700' text-anchor='middle' fill='%2395b0a6'%3ELP%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script>try{document.documentElement.dataset.theme=localStorage.getItem("theme")||"light"}catch(e){document.documentElement.dataset.theme="light"}</script>
 <style>
-:root{
+:root,[data-theme="light"]{
+  --bg:#f6f5f1; --card:#ffffff; --line:#dedbd3; --text:#24272c; --muted:#5e646c;
+  --accent:#3f6b5e; --accent-hover:#34594e; --on-accent:#ffffff; --accent-soft:rgba(63,107,94,.09);
+  --desc:#3a3e44; --list:#4c5158; --radius:8px; color-scheme:light;
+}
+[data-theme="dark"]{
   --bg:#1c1e22; --card:#23262b; --line:#34383e; --text:#dcdfe3; --muted:#9aa0a8;
-  --accent:#95b0a6; --radius:8px;
+  --accent:#95b0a6; --accent-hover:#a8c2b8; --on-accent:#17191c; --accent-soft:rgba(149,176,166,.12);
+  --desc:#c4c9cf; --list:#aeb4bb; color-scheme:dark;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;scroll-padding-top:72px}
-body{background:var(--bg);color:var(--text);font:400 16px/1.65 system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+body{background:var(--bg);color:var(--text);font:400 16px/1.65 Inter,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
 a{color:inherit;text-decoration:none}
 .wrap{max-width:860px;margin:0 auto;padding:0 24px}
 h1,h2,h3{font-family:Georgia,"Times New Roman",serif;font-weight:600;line-height:1.25}
@@ -26,15 +36,18 @@ h1,h2,h3{font-family:Georgia,"Times New Roman",serif;font-weight:600;line-height
 nav{position:sticky;top:0;z-index:20;background:var(--bg);border-bottom:1px solid var(--line)}
 nav .wrap{display:flex;align-items:center;justify-content:space-between;height:56px}
 .logo{font-family:Georgia,serif;font-weight:600;font-size:17px}
+.nav-r{display:flex;align-items:center;gap:10px}
+.theme{font:400 13px Inter,system-ui,sans-serif;color:var(--muted);background:none;border:1px solid var(--line);border-radius:var(--radius);padding:6px 12px;cursor:pointer}
+.theme:hover{color:var(--text)}
 nav ul{display:flex;gap:24px;list-style:none;font-size:14px;color:var(--muted)}
 nav ul a:hover{color:var(--text)}
 @media(max-width:700px){nav ul{display:none}}
 
 .btn{display:inline-block;padding:10px 20px;border-radius:var(--radius);font-weight:500;font-size:15px;border:1px solid var(--accent);transition:background .15s,color .15s}
-.btn.primary{background:var(--accent);color:#17191c}
-.btn.primary:hover{background:#a8c2b8}
+.btn.primary{background:var(--accent);color:var(--on-accent)}
+.btn.primary:hover{background:var(--accent-hover)}
 .btn.ghost{color:var(--accent)}
-.btn.ghost:hover{background:rgba(149,176,166,.12)}
+.btn.ghost:hover{background:var(--accent-soft)}
 .btn.sm{padding:6px 14px;font-size:13px}
 
 .hero{padding:64px 0 24px}
@@ -50,9 +63,9 @@ section{padding:56px 0 0}
 h2{font-size:26px;margin-bottom:22px;padding-bottom:10px;border-bottom:1px solid var(--line)}
 
 .filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px}
-.chip{font:400 14px system-ui,sans-serif;color:var(--muted);background:none;border:1px solid var(--line);padding:5px 14px;border-radius:var(--radius);cursor:pointer}
+.chip{font:400 14px Inter,system-ui,sans-serif;color:var(--muted);background:none;border:1px solid var(--line);padding:5px 14px;border-radius:var(--radius);cursor:pointer}
 .chip:hover{color:var(--text)}
-.chip.on{color:var(--text);border-color:var(--accent);background:rgba(149,176,166,.12)}
+.chip.on{color:var(--text);border-color:var(--accent);background:var(--accent-soft)}
 
 .role{margin-bottom:16px}
 .role[hidden]{display:none}
@@ -62,13 +75,13 @@ h2{font-size:26px;margin-bottom:22px;padding-bottom:10px;border-bottom:1px solid
 .tag::before{content:"· "}
 .card h3{font-size:18px}
 .org{color:var(--muted);font-size:14.5px;margin-top:2px}
-.card p.desc{margin-top:10px;font-size:15px;color:#c4c9cf}
+.card p.desc{margin-top:10px;font-size:15px;color:var(--desc)}
 details{margin-top:12px}
 summary{cursor:pointer;font-size:14px;color:var(--accent);list-style:none;user-select:none}
 summary::-webkit-details-marker{display:none}
 summary::before{content:"+ "}
 details[open] summary::before{content:"− "}
-details ul{margin-top:10px;padding-left:20px;font-size:14.5px;color:#aeb4bb}
+details ul{margin-top:10px;padding-left:20px;font-size:14.5px;color:var(--list)}
 details li{margin-bottom:5px}
 
 .edu{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
@@ -78,7 +91,7 @@ details li{margin-bottom:5px}
 
 .skills .card{margin-bottom:14px}
 .skills h3{font-size:16px;margin-bottom:8px}
-.skills p{font-size:15px;color:#c4c9cf}
+.skills p{font-size:15px;color:var(--desc)}
 
 .contact{margin-top:64px;padding:36px 28px;text-align:center;border:1px solid var(--line);border-radius:var(--radius);background:var(--card)}
 .contact h2{border:0;padding:0;margin-bottom:8px}
@@ -98,7 +111,10 @@ footer{padding:32px 0 40px;text-align:center;color:var(--muted);font-size:13px}
       <li><a href="#formazione">Formazione</a></li>
       <li><a href="#competenze">Competenze</a></li>
     </ul>
-    <a class="btn primary sm" href="mailto:lucaplacidop@gmail.com?subject=Contatto%20dal%20tuo%20sito">Scrivimi</a>
+    <div class="nav-r">
+      <button class="theme" id="theme" type="button" aria-label="Cambia tema"></button>
+      <a class="btn primary sm" href="mailto:lucaplacidop@gmail.com?subject=Contatto%20dal%20tuo%20sito">Scrivimi</a>
+    </div>
   </div>
 </nav>
 
@@ -133,36 +149,42 @@ footer{padding:32px 0 40px;text-align:center;color:var(--muted);font-size:13px}
 
   <div>
 
-    <article class="role" data-cat="ai">
+    <article class="role" data-cat="uni">
       <div class="card">
-        <div class="meta"><span class="period">03/2026 — oggi</span><span class="tag">AI & Formazione</span></div>
-        <h3>Esperto nella creazione e ideazione di corsi MOOC</h3>
-        <p class="org">Digital Education Hubs (DEH) ALMA · Università degli Studi di Sassari</p>
-        <p class="desc">Ideazione e realizzazione del MOOC <b>"Intelligenza Artificiale per l'Analisi dei Dati Economici"</b> nell'ecosistema EDVANCE, coordinato dal Politecnico di Milano.</p>
-        <details><summary>Dettagli</summary>
+        <div class="meta"><span class="period">12/2024 — oggi</span><span class="tag">Università</span></div>
+        <h3>Professore universitario a contratto</h3>
+        <p class="org">Università di Foggia · Laurea Magistrale in Innovazione Digitale e Comunicazione (LM-91)</p>
+        <p class="desc">Titolare dell'insegnamento di <b>Tecnologie e Programmazione Web</b> e, fino ad aprile 2026, di <b>Analisi dei dataset per AI, Machine Learning e Reti Neurali</b>.</p>
+        <details><summary>Tecnologie e Programmazione Web</summary>
           <ul>
-            <li>Macroprogettazione del MOOC: obiettivi formativi e competenze chiave.</li>
-            <li>Microprogettazione delle unità su Big Data Analytics, etica dell'uso dei dati, visual analytics e open science.</li>
-            <li>Materiali didattici e strumenti di valutazione dell'apprendimento.</li>
-            <li>Videolezioni e risorse multimediali per una cultura digitale inclusiva e sostenibile.</li>
-            <li>Progetto finanziato da Unione Europea – NextGenerationEU (PNRR, Missione 4 "Istruzione e ricerca").</li>
+            <li>Architettura di Internet e del Web, HTML, CSS e programmazione client-side con JavaScript.</li>
+            <li>Logiche server-side, form e database, API, servizi web e REST.</li>
+            <li>Sicurezza, responsive design, CMS, e-commerce e web service.</li>
+          </ul>
+        </details>
+        <details><summary>Analisi dei dataset per AI, ML e Reti Neurali</summary>
+          <ul>
+            <li>Fondamenti di AI e Data Analytics: paradigmi di apprendimento supervisionato, non supervisionato e per rinforzo.</li>
+            <li>Data curation (training, validation, test), bias e varianza, classificazione, alberi decisionali, K-NN, K-Means.</li>
+            <li>Data cleaning e transformation, analisi e plotting con Python, pipeline di data processing e data visualization.</li>
+            <li>Archiviazione secondo standard FAIR e DDI, compatibile con GDPR e open science.</li>
+            <li>Supervisione di tesi su raccolta, gestione e analisi di dataset empirici.</li>
           </ul>
         </details>
       </div>
     </article>
 
-    <article class="role" data-cat="uni">
+    <article class="role" data-cat="scuola">
       <div class="card">
-        <div class="meta"><span class="period">03/2026</span><span class="tag">Università</span></div>
-        <h3>Professore universitario a contratto</h3>
-        <p class="org">Università Telematica degli Studi IUL</p>
-        <p class="desc">Insegnamento di <b>Tecnologie informatiche applicate alla didattica della Matematica e delle Scienze</b> nei percorsi di formazione iniziale docenti (60/36/30 CFU).</p>
+        <div class="meta"><span class="period">09/2022 — oggi</span><span class="tag">Scuola</span></div>
+        <h3>Docente di Informatica (A041) e Referente interno per l'IA</h3>
+        <p class="org">Istituti di istruzione secondaria di II grado</p>
+        <p class="desc">Insegnamento di Informatica, referente scolastico per l'Intelligenza Artificiale e per il Gruppo di Progettazione Campus PNRR.</p>
         <details><summary>Dettagli</summary>
           <ul>
-            <li>Sistemi operativi, linguaggi di programmazione, reti di calcolatori, strumenti interattivi (GeoGebra, Desmos, PhET).</li>
-            <li>Metodologie dei laboratori STE(A)M e interdisciplinarità Matematica-Scienze (classe A028).</li>
-            <li>Inclusività BES e gestione di dati/open data.</li>
-            <li>Verifica dell'apprendimento tramite project work pratici, e-tivity e prove orali.</li>
+            <li>Tutoraggio per percorsi formativi in modalità duale, con sviluppo di competenze professionali e trasversali.</li>
+            <li>Progettazione, organizzazione e monitoraggio delle attività, in coerenza con il sistema duale e le linee guida PNRR.</li>
+            <li>Raccordo tra contesto scolastico e mondo del lavoro in collaborazione con enti formativi e imprese.</li>
           </ul>
         </details>
       </div>
@@ -206,6 +228,24 @@ footer{padding:32px 0 40px;text-align:center;color:var(--muted);font-size:13px}
 
     <article class="role" data-cat="ai">
       <div class="card">
+        <div class="meta"><span class="period">03/2026 — oggi</span><span class="tag">AI & Formazione</span></div>
+        <h3>Esperto nella creazione e ideazione di corsi MOOC</h3>
+        <p class="org">Digital Education Hubs (DEH) ALMA · Università degli Studi di Sassari</p>
+        <p class="desc">Ideazione e realizzazione del MOOC <b>"Intelligenza Artificiale per l'Analisi dei Dati Economici"</b> nell'ecosistema EDVANCE, coordinato dal Politecnico di Milano.</p>
+        <details><summary>Dettagli</summary>
+          <ul>
+            <li>Macroprogettazione del MOOC: obiettivi formativi e competenze chiave.</li>
+            <li>Microprogettazione delle unità su Big Data Analytics, etica dell'uso dei dati, visual analytics e open science.</li>
+            <li>Materiali didattici e strumenti di valutazione dell'apprendimento.</li>
+            <li>Videolezioni e risorse multimediali per una cultura digitale inclusiva e sostenibile.</li>
+            <li>Progetto finanziato da Unione Europea – NextGenerationEU (PNRR, Missione 4 "Istruzione e ricerca").</li>
+          </ul>
+        </details>
+      </div>
+    </article>
+
+    <article class="role" data-cat="ai">
+      <div class="card">
         <div class="meta"><span class="period">02/2025 — 12/2025</span><span class="tag">AI & Formazione</span></div>
         <h3>Esperto nella creazione e ideazione di corsi MOOC</h3>
         <p class="org">Digital Education Hubs (DEH) ALMA · Università di Macerata</p>
@@ -216,6 +256,23 @@ footer{padding:32px 0 40px;text-align:center;color:var(--muted);font-size:13px}
             <li>Materiali multimediali in logica blended learning, integrando approcci tradizionali e strumenti di IA.</li>
             <li>Risorse inclusive secondo i principi UDL, anche in contesti L2T.</li>
             <li>Micro-credential e open badge per certificare le competenze acquisite.</li>
+          </ul>
+        </details>
+      </div>
+    </article>
+
+    <article class="role" data-cat="uni">
+      <div class="card">
+        <div class="meta"><span class="period">03/2026</span><span class="tag">Università</span></div>
+        <h3>Professore universitario a contratto</h3>
+        <p class="org">Università Telematica degli Studi IUL</p>
+        <p class="desc">Insegnamento di <b>Tecnologie informatiche applicate alla didattica della Matematica e delle Scienze</b> nei percorsi di formazione iniziale docenti (60/36/30 CFU).</p>
+        <details><summary>Dettagli</summary>
+          <ul>
+            <li>Sistemi operativi, linguaggi di programmazione, reti di calcolatori, strumenti interattivi (GeoGebra, Desmos, PhET).</li>
+            <li>Metodologie dei laboratori STE(A)M e interdisciplinarità Matematica-Scienze (classe A028).</li>
+            <li>Inclusività BES e gestione di dati/open data.</li>
+            <li>Verifica dell'apprendimento tramite project work pratici, e-tivity e prove orali.</li>
           </ul>
         </details>
       </div>
@@ -238,42 +295,18 @@ footer{padding:32px 0 40px;text-align:center;color:var(--muted);font-size:13px}
       </div>
     </article>
 
-    <article class="role" data-cat="uni">
+    <article class="role" data-cat="data">
       <div class="card">
-        <div class="meta"><span class="period">12/2024 — oggi</span><span class="tag">Università</span></div>
-        <h3>Professore universitario a contratto</h3>
-        <p class="org">Università di Foggia · Laurea Magistrale in Innovazione Digitale e Comunicazione (LM-91)</p>
-        <p class="desc">Titolare dell'insegnamento di <b>Tecnologie e Programmazione Web</b> e, fino ad aprile 2026, di <b>Analisi dei dataset per AI, Machine Learning e Reti Neurali</b>.</p>
-        <details><summary>Tecnologie e Programmazione Web</summary>
-          <ul>
-            <li>Architettura di Internet e del Web, HTML, CSS e programmazione client-side con JavaScript.</li>
-            <li>Logiche server-side, form e database, API, servizi web e REST.</li>
-            <li>Sicurezza, responsive design, CMS, e-commerce e web service.</li>
-          </ul>
-        </details>
-        <details><summary>Analisi dei dataset per AI, ML e Reti Neurali</summary>
-          <ul>
-            <li>Fondamenti di AI e Data Analytics: paradigmi di apprendimento supervisionato, non supervisionato e per rinforzo.</li>
-            <li>Data curation (training, validation, test), bias e varianza, classificazione, alberi decisionali, K-NN, K-Means.</li>
-            <li>Data cleaning e transformation, analisi e plotting con Python, pipeline di data processing e data visualization.</li>
-            <li>Archiviazione secondo standard FAIR e DDI, compatibile con GDPR e open science.</li>
-            <li>Supervisione di tesi su raccolta, gestione e analisi di dataset empirici.</li>
-          </ul>
-        </details>
-      </div>
-    </article>
-
-    <article class="role" data-cat="scuola">
-      <div class="card">
-        <div class="meta"><span class="period">09/2022 — oggi</span><span class="tag">Scuola</span></div>
-        <h3>Docente di Informatica (A041) e Referente interno per l'IA</h3>
-        <p class="org">Istituti di istruzione secondaria di II grado</p>
-        <p class="desc">Insegnamento di Informatica, referente scolastico per l'Intelligenza Artificiale e per il Gruppo di Progettazione Campus PNRR.</p>
+        <div class="meta"><span class="period">12/2019 — oggi</span><span class="tag">Data & Web</span></div>
+        <h3>Digital Consultant</h3>
+        <p class="org">Fratelli Digitali</p>
+        <p class="desc">Sviluppo di soluzioni web responsive e <b>e-commerce scalabili</b> (Shopify, WooCommerce), dall'analisi dei requisiti al deployment su cloud.</p>
         <details><summary>Dettagli</summary>
           <ul>
-            <li>Tutoraggio per percorsi formativi in modalità duale, con sviluppo di competenze professionali e trasversali.</li>
-            <li>Progettazione, organizzazione e monitoraggio delle attività, in coerenza con il sistema duale e le linee guida PNRR.</li>
-            <li>Raccordo tra contesto scolastico e mondo del lavoro in collaborazione con enti formativi e imprese.</li>
+            <li>HTML5, CSS3, JavaScript (React/Vue.js), database MySQL/MongoDB.</li>
+            <li>Integrazione di sistemi di pagamento (Stripe, PayPal), carrelli, gestione inventario e funnel di conversione.</li>
+            <li>Wireframing UI/UX, sviluppo front-end/back-end, testing cross-browser e deployment.</li>
+            <li>Ottimizzazione per SEO, performance (Core Web Vitals) e sicurezza (HTTPS, GDPR).</li>
           </ul>
         </details>
       </div>
@@ -291,23 +324,6 @@ footer{padding:32px 0 40px;text-align:center;color:var(--muted);font-size:13px}
             <li>Elaborazione e trasformazione di dati, anche non strutturati (Big Data), con estrazioni ad hoc per analytics e insight.</li>
             <li>Collaborazione con il team di Data Visualization su dashboard interattive per il management.</li>
             <li>Supervisione dell'adozione di Knime per il data entry e promozione di una cultura aziendale data-driven.</li>
-          </ul>
-        </details>
-      </div>
-    </article>
-
-    <article class="role" data-cat="data">
-      <div class="card">
-        <div class="meta"><span class="period">12/2019 — oggi</span><span class="tag">Data & Web</span></div>
-        <h3>Digital Consultant</h3>
-        <p class="org">Fratelli Digitali</p>
-        <p class="desc">Sviluppo di soluzioni web responsive e <b>e-commerce scalabili</b> (Shopify, WooCommerce), dall'analisi dei requisiti al deployment su cloud.</p>
-        <details><summary>Dettagli</summary>
-          <ul>
-            <li>HTML5, CSS3, JavaScript (React/Vue.js), database MySQL/MongoDB.</li>
-            <li>Integrazione di sistemi di pagamento (Stripe, PayPal), carrelli, gestione inventario e funnel di conversione.</li>
-            <li>Wireframing UI/UX, sviluppo front-end/back-end, testing cross-browser e deployment.</li>
-            <li>Ottimizzazione per SEO, performance (Core Web Vitals) e sicurezza (HTTPS, GDPR).</li>
           </ul>
         </details>
       </div>
@@ -417,6 +433,17 @@ footer{padding:32px 0 40px;text-align:center;color:var(--muted);font-size:13px}
 <footer>© <span id="y">2026</span> Luca Placido</footer>
 
 <script>
+// Tema chiaro/scuro
+const tb = document.getElementById('theme');
+function paint(){ tb.textContent = document.documentElement.dataset.theme === 'dark' ? 'Tema chiaro' : 'Tema scuro'; }
+tb.addEventListener('click', () => {
+  const t = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+  document.documentElement.dataset.theme = t;
+  try { localStorage.setItem('theme', t); } catch(e) {}
+  paint();
+});
+paint();
+
 // Anno nel footer
 document.getElementById('y').textContent = new Date().getFullYear();
 
